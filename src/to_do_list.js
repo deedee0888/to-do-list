@@ -32,6 +32,8 @@ handleOnKey = event => {
 }
 
 addToList() {
+
+    if(this.state.userInput === '') {return}
     
     let listArr = this.state.list;
     listArr.push(this.state.userInput);
@@ -57,7 +59,9 @@ deleteElement(index) {
            <div className="container">
             <div className="header">To do list:</div>
             <div className="addingArea">
-                <input type="text"
+                <input 
+                    autoFocus
+                    type="text"
                     ref={((input) => this.userInput = input)}
                     className="textInput"
                     value={this.state.userInput}
